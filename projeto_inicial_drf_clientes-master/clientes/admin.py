@@ -1,12 +1,11 @@
-from django.contrib import admin
 from clientes.models import Cliente
+from django.contrib import admin
+
 
 class Clientes(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'email','cpf', 'rg', 'celular', 'ativo')
+    list_display = ('id', 'nome', 'email')
     list_display_links = ('id', 'nome')
-    search_fields = ('nome', 'cpf',)
-    list_filter = ('ativo',)
-    list_editable = ('ativo',)
+    search_fields = ('nome',)
     list_per_page = 25
     ordering = ('nome',)
 

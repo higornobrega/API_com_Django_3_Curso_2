@@ -1,7 +1,8 @@
-from rest_framework import viewsets, filters
-from clientes.serializers import ClienteSerializer
 from clientes.models import Cliente
+from clientes.serializers import ClienteSerializer
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, viewsets
+
 
 class ClientesViewSet(viewsets.ModelViewSet):
     """Listando clientes"""
@@ -9,5 +10,4 @@ class ClientesViewSet(viewsets.ModelViewSet):
     serializer_class = ClienteSerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome']
-    search_fields = ['nome', 'cpf']
-    filterset_fields = ['ativo']
+    search_fields = ['nome', 'mensagem']
